@@ -16,16 +16,20 @@
             <h1>Sign Up</h1>
             <form action="" class="login-form">
                 <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" autocomplete="off">
+                </div>
+                <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" name="login-email" id="email" autocomplete="off">
+                    <input type="email" name="signup-email" id="email" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" name="login-password" id="password" autocomplete="off">
+                    <input type="password" name="signup-password" id="password" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <label for="confirm-password">Confirm Password</label>
-                    <input type="password" name="confirm-login-password" id="confirm-password" autocomplete="off">
+                    <input type="password" name="confirm-signup-password" id="confirm-password" autocomplete="off">
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Sign Up">

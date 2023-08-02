@@ -35,7 +35,8 @@ h3,
 h4,
 h5,
 h5 {
-  font-family: "Staatliches", cursive;
+  font-family: "Staatliches", "Poppins";
+  letter-spacing: 2px;
 }
 p,
 span,
@@ -43,7 +44,10 @@ label,
 a,
 button,
 input,
-li {
+li,
+table,
+td,
+th {
   font-family: "Poppins", sans-serif;
 }
 a {
@@ -55,15 +59,28 @@ li {
 label {
   display: block;
 }
+table {
+  border-collapse: collapse;
+}
 img,
 svg,
 picture {
   display: block;
   width: 100%;
 }
+/* Utility Classes */
 .dark-bg {
   background-color: #242423;
   color: var(--white) !important;
+}
+.flex {
+  display: flex;
+}
+.align-center {
+  align-items: center;
+}
+.space-between {
+  justify-content: space-between;
 }
 /* header */
 
@@ -76,7 +93,7 @@ nav {
   font-size: var(--step-1);
   text-transform: uppercase;
   font-weight: 600;
-  font-family: "Staatliches", cursive !important;
+  font-family: "Staatliches", "Poppins" !important;
   /* text-align: center; */
 }
 .navbar {
@@ -150,6 +167,7 @@ main {
 }
 .post-title {
   margin-bottom: 1rem;
+  text-wrap: balance;
   font-size: var(--step--1);
 }
 .post-excerpt {
@@ -176,7 +194,7 @@ main {
   text-transform: uppercase;
   color: var(--white);
   font-size: var(--step-1);
-  font-family: "Staatliches", cursive !important;
+  font-family: "Staatliches", "Poppins" !important;
 }
 .form-group {
   margin: 1rem 0;
@@ -216,6 +234,7 @@ main {
 .article-title {
   font-size: var(--step-2);
   margin: 1rem 0;
+  text-wrap: balance;
 }
 .article-excerpt {
   font-size: 20px;
@@ -260,17 +279,14 @@ main {
   border-radius: 3px;
   margin: 1rem 0;
 }
-.create-post-form input[type="file"]{
+.create-post-form input[type="file"] {
   display: block;
   margin: 1rem 0;
-
-
 }
-.create-post-form textarea{
+.create-post-form textarea {
   display: block;
   margin: 1rem 0;
   width: 100%;
-
 }
 .create-post-form input[type="submit"] {
   display: block;
@@ -279,8 +295,119 @@ main {
   background-color: var(--white);
   color: var(--black);
   cursor: pointer;
-  font-size: clamp(16px,18px,20px);
+  font-size: clamp(16px, 18px, 20px);
   margin: 1rem 0;
+}
+/* User Dashboard */
+.dashboard-header {
+  border-bottom: 2px solid var(--white);
+  margin-bottom: 3rem;
+}
+.dashboard-header nav {
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(900px, 95%);
+  margin: 0 auto;
+}
+.home-btn {
+  border: 1px solid var(--white);
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+.create-post-btn {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 10px 20px;
+  border-radius: 2px;
+}
+.dashboard-title {
+  font-size: var(--step-1);
+  letter-spacing: 2px;
+  text-wrap: balance;
+}
+.dashboard-navbar .login-btn {
+  color: hsl(0, 0%, 90%);
+}
+.dashboard-content {
+  width: min(900px, 95%);
+  margin: 0 auto;
+}
+.recent-title {
+  margin-top: 1rem;
+}
+.recent-post-table {
+  width: 100%;
+  text-align: left;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+.recent-post-table th {
+  font-size: clamp(20px, 24px, 30px);
+  padding: 5px 10px;
+  background-color: var(--black);
+}
+.recent-post-table td {
+  padding: 10px;
+  font-size: clamp(18px, 22px, 26px);
+  background-color: var(--black);
+}
+.view-btn,
+.edit-btn,
+.delete-btn {
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: clamp(16px, 18px, 20px);
+}
+.view-btn {
+  background-color: var(--light-blue);
+  color: black;
+}
+.edit-btn {
+  background-color: var(--green);
+  color: var(--black);
+}
+.delete-btn {
+  background-color: var(--red);
+  color: var(--white);
+}
+/* Confirm Delete */
+.delete-container {
+  width: min(600px, 95%);
+  margin-inline: auto;
+  margin-top: 14rem;
+  border: 2px solid var(--white);
+  /* padding: 0 1rem 2rem 1rem; */
+}
+.delete-warning {
+  background-color: var(--red);
+  padding: 0.5rem;
+  color: black;
+  font-weight: 500;
+  font-size: clamp(16px, 20px, 22px);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--white);
+}
+.delete-post-title {
+  margin-bottom: 2rem;
+  font-size: clamp(22px, 26px, 32px);
+  word-wrap: break-word;
+  padding: 0 0.5rem;
+}
+.delete-actions {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0.5rem 1rem auto;
+}
+.cancel-delete-btn {
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 5px 15px;
+  border-radius: 5px;
 }
 
 /* footer */

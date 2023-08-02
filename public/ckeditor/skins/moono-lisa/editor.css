@@ -1151,7 +1151,8 @@ a.cke_path_item:active {
 textarea.cke_source {
   font-family: "Courier New", Monospace;
   font-size: small;
-  background-color: #fff;
+  background-color: #000000;
+  color: #ffffff;
   white-space: pre-wrap;
   border: 0;
   padding: 0;

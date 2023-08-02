@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&family=Staatliches&display=swap");
+
+:root {
+  /* Colors */
+  --light-blue: #9dcdc0;
+  --red: #f74a24;
+  --green: #7f9438;
+  --yellow: #fed766;
+  --orange: #d95d4a;
+  --white: #ffffff;
+  --black: #000000;
+  /* Fontsizes */
+  --step--2: clamp(0.78rem, calc(0.46rem + 1.63vw), 1.92rem);
+  --step--1: clamp(0.94rem, calc(0.52rem + 2.09vw), 2.4rem);
+  --step-0: clamp(1.13rem, calc(0.59rem + 2.68vw), 3rem);
+  --step-1: clamp(1.35rem, calc(0.66rem + 3.43vw), 3.75rem);
+  --step-2: clamp(1.62rem, calc(0.74rem + 4.38vw), 4.69rem);
+  --step-3: clamp(1.94rem, calc(0.83rem + 5.59vw), 5.86rem);
+  --step-4: clamp(2.33rem, calc(0.91rem + 7.13vw), 7.32rem);
+  --step-5: clamp(2.8rem, calc(0.98rem + 9.08vw), 9.15rem);
+}
+html {
+  scroll-behavior: smooth;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h5 {
+  font-family: "Staatliches", cursive;
+}
+p,
+span,
+label,
+a,
+button,
+input,
+li {
+  font-family: "Poppins", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+label{
+  display: block;
+}
+img,
+svg,
+picture {
+  display: block;
+  width: 100%;
+}
+.dark-bg{
+  background-color: #242423;
+  color: var(--white) !important;
+}
+/* header */
+
+nav {
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--black);
+}
+.brand {
+  color: var(--black);
+  font-size: var(--step-1);
+  text-transform: uppercase;
+  font-weight: 600;
+  /* text-align: center; */
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+.search-form {
+  display: flex;
+  gap: 1rem;
+}
+#search {
+  display: block;
+  padding: 0.4rem 2rem;
+  outline: none;
+  border: 1px solid transparent;
+  background-color: hsl(0, 0%, 90%);
+  border-radius: 3px;
+  font-size: 1rem;
+}
+.cta-btns {
+  display: flex;
+  gap: 1rem;
+}
+.signup-btn {
+  background-color: var(--black);
+  padding: 8px 16px;
+  color: var(--white);
+}
+.login-btn {
+  padding: 8px 16px;
+  color: var(--black);
+}
+/* main */
+main {
+  min-height: 100vh;
+}
+/* Post container */
+.posts-container{
+    padding: 2rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+    border-bottom: 2px solid var(--black);
+}
+.post:nth-child(odd){
+    background-color: var(--green);
+}
+.post:nth-child(even){
+    background-color: var(--orange);
+}
+.post{
+    border: 2px solid var(--black);
+    border-radius: 5px;
+}
+.post:hover{
+    box-shadow: 3px 3px;
+    transition: all ease-in-out;
+}
+.post-img{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.post-details{
+    padding: 1rem 1.5rem;
+}
+.post-date{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.post-title{
+    margin-bottom: 1rem;
+    font-size: var(--step--1);
+}
+.post-excerpt{
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+.readmore-btn{
+    color: black;
+    font-weight: 500;
+}
+/* login page */
+.login{
+  width: min(700px,95%);
+  margin-inline:auto;
+}
+.login-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 0;
+}
+.login-brand{
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 1.8rem;
+}
+.form-group{
+  margin: 1rem 0;
+}
+.form-group label{
+  margin-bottom: .5rem;
+}
+.form-group input {
+  width: 100%;
+  padding: .6rem;
+  background-color: var(--black);
+  outline: none;
+  border: 1px solid var(--white);
+  color: var(--white);
+  font-size: 1.2rem;
+  border-radius: 3px;
+}
+.form-group input[type="submit"]{
+  display: block;
+  width: 100%;
+  padding: .6rem;
+  background-color: var(--white);
+  color: var(--black);
+  cursor: pointer;
+}
+
+/* footer */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+}
+@media only screen and (max-width:1024px){
+    /* posts container */
+    .posts-container{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  #search {
+    padding: 0.4rem 0.5rem;
+    font-size: 14px;
+  }
+  .cta-btns {
+    gap: 0.5rem;
+  }
+  .login-btn,
+  .signup-btn {
+    font-size: 14px;
+  }
+  /* posts container */
+  .posts-container{
+    grid-template-columns: repeat(1,1fr);
+  }
+}

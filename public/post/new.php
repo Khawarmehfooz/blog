@@ -22,7 +22,7 @@
         <input type="text" name="post-excerpt" id="post-excerpt" placeholder="Except">
         <input type="file" name="post-image" id="post-image">
         <textarea name="post-description" id="post-description" cols="30" rows="10"></textarea>
-        <input type="submit" value="Post">
+        <input type="submit" value="Publish">
         <script>
             CKEDITOR.replace('post-description');
         </script>

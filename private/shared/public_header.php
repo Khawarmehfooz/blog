@@ -16,7 +16,7 @@
                         <a class="brand" href="<?php echo url_for("/") ?>">Blog</a>
                         <div class="cta-btns">
                             <a class="login-btn" role="button" href="<?php echo url_for("/login.php") ?>">Login</a>
-                            <a class="signup-btn" role="button" href="#">Sign Up</a>
+                            <a class="signup-btn" role="button" href="<?php echo url_for("/signup.php") ?>">Sign Up</a>
                         </div>
                     </div>
             </nav>

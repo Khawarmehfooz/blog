@@ -9,7 +9,7 @@
                 <p class="post-date">Aug 1, 2023</p>
                 <h2 class="post-title">Behind Blog's New Design System</h2>
                 <p class="post-excerpt">The story of our site-wide redesign and web tech and accessibility wins.</p>
-                <a class="readmore-btn" role="button" href="#">Read More &rarr;</a>
+                <a class="readmore-btn" role="button" href="<?php echo url_for("/post/view.php") ?>">Read More &rarr;</a>
             </section>
         </article>
         <article class="post">
@@ -18,7 +18,7 @@
                 <p class="post-date">Aug 1, 2023</p>
                 <h2 class="post-title">Behind Blog's New Design System</h2>
                 <p class="post-excerpt">The story of our site-wide redesign and web tech and accessibility wins.</p>
-                <a class="readmore-btn" role="button" href="#">Read More &rarr;</a>
+                <a class="readmore-btn" role="button" href="<?php echo url_for("/post/view.php") ?>">Read More &rarr;</a>
             </section>
         </article>
         <article class="post">
@@ -27,7 +27,7 @@
                 <p class="post-date">Aug 1, 2023</p>
                 <h2 class="post-title">Behind Blog's New Design System</h2>
                 <p class="post-excerpt">The story of our site-wide redesign and web tech and accessibility wins.</p>
-                <a class="readmore-btn" role="button" href="#">Read More &rarr;</a>
+                <a class="readmore-btn" role="button" href="<?php echo url_for("/post/view.php") ?>">Read More &rarr;</a>
             </section>
         </article>
         <article class="post">
@@ -36,7 +36,7 @@
                 <p class="post-date">Aug 1, 2023</p>
                 <h2 class="post-title">Behind Blog's New Design System</h2>
                 <p class="post-excerpt">The story of our site-wide redesign and web tech and accessibility wins.</p>
-                <a class="readmore-btn" role="button" href="#">Read More &rarr;</a>
+                <a class="readmore-btn" role="button" href="<?php echo url_for("/post/view.php") ?>">Read More &rarr;</a>
             </section>
         </article>
         <article class="post">
@@ -45,7 +45,7 @@
                 <p class="post-date">Aug 1, 2023</p>
                 <h2 class="post-title">Behind Blog's New Design System</h2>
                 <p class="post-excerpt">The story of our site-wide redesign and web tech and accessibility wins.</p>
-                <a class="readmore-btn" role="button" href="#">Read More &rarr;</a>
+                <a class="readmore-btn" role="button" href="<?php echo url_for("/post/view.php") ?>">Read More &rarr;</a>
             </section>
         </article>
         <article class="post">
@@ -54,9 +54,10 @@
                 <p class="post-date">Aug 1, 2023</p>
                 <h2 class="post-title">Behind Blog's New Design System</h2>
                 <p class="post-excerpt">The story of our site-wide redesign and web tech and accessibility wins.</p>
-                <a class="readmore-btn" role="button" href="#">Read More &rarr;</a>
+                <a class="readmore-btn" role="button" href="<?php echo url_for("/post/view.php") ?>">Read More &rarr;</a>
             </section>
         </article>
+        
     </div>
 
 </main>

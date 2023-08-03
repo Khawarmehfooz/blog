@@ -1,5 +1,6 @@
 <?php
     include("../../private/initialize.php");
+    require_login();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,4 +1,7 @@
-<?php include("../../private/initialize.php"); ?>
+<?php 
+    include("../../private/initialize.php"); 
+    require_login();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +19,7 @@
     </header>
     <main>
         <section class="dashboard-content">
+            <p class="welcome-message">Welcome Back <?php echo $_SESSION['username'] ?></p>
             <div class="flex space-between align-center">
                 <a class="home-btn" role="button" href="<?php echo url_for("/") ?>">Home</a>
                 <a class="create-post-btn" role="button" href="<?php echo url_for("/post/new.php") ?>">Create Post</a>

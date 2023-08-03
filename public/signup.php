@@ -1,11 +1,28 @@
-<?php require_once('../private/initialize.php'); ?>
+<?php 
+    require_once('../private/initialize.php'); 
+    if(is_post_request()){
+        $username = $_POST['username'];
+        $email = $_POST['signup-email'];
+        $password = $_POST['signup-password'];
+        $confirm_password = $_POST['confirm-signup-password'];
+
+        $new_user = new User($username,$email,$password);
+        if($new_user->createUser()){
+            echo "<pre>";
+            var_dump($new_user);
+            echo "</pre>";    
+        } 
+        
+
+    }
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="<?php echo url_for("/css/public.css") ?>">
-        <title>Blog - Login</title>
+        <title>Blog - Sign Up</title>
     </head>
     <body class="dark-bg">
         <section class="login">
@@ -14,7 +31,7 @@
                 <a class="signup-btn" href="<?php echo url_for("/login.php") ?>">Log in</a>
             </header>
             <h1>Sign Up</h1>
-            <form action="" class="login-form">
+            <form action="signup.php" class="login-form" method="POST">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" autocomplete="off">

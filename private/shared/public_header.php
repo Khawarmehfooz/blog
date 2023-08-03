@@ -16,17 +16,12 @@
                         <a class="brand" href="<?php echo url_for("/") ?>">Blog</a>
                         <div class="cta-btns">
                             <?php
-                                if(!is_user_logged_in()){?>
+                                if(!is_user_logged_in()){ ?>
                                 <a class="login-btn" role="button" href="<?php echo url_for("/login.php") ?>">Login</a>
                                 <a class="signup-btn" role="button" href="<?php echo url_for("/signup.php") ?>">Sign Up</a>
-                            <?php
-                                }else{?>
-                                <a class="dashboard-btn" role="button" href="<?php echo url_for("/user-dashboard") ?>">Dashboard</a>
-                                    
-                             <?php 
-
-                                }
-                            ?>
+                            <?php }else{ ?>
+                                <a class="dashboard-btn" role="button" href="<?php echo url_for("/user-dashboard") ?>">Dashboard</a>      
+                             <?php } ?>
                         </div>
                     </div>
             </nav>

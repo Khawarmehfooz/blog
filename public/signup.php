@@ -6,14 +6,29 @@
         $password = $_POST['signup-password'];
         $confirm_password = $_POST['confirm-signup-password'];
 
+        if($username == ""){
+            $errors[] = "Username cannot be blank!";
+        }
+        if($email == ""){
+            $errors[] = "Email cannot be blank!";
+        }
+        if($password == ""){
+            $errors[] = "Password cannot be blank!";
+        }
+        if($password !== $confirm_password){
+            $errors[] = "Password doesnot Match!";
+        }
+
         $new_user = new User($username,$email,$password);
-        $result = $new_user->createUser(); 
-        if( $result === true){
-            $new_user_id = mysqli_insert_id($db);
-            $_SESSION['message'] = "Account created successfully.";
-            redirect_to(url_for("/login.php"));    
-        } else{
-            $errors[] = $result;
+        if(empty($errors)){
+            $result = $new_user->createUser(); 
+            if( $result === true){
+                $new_user_id = mysqli_insert_id($db);
+                $_SESSION['message'] = "Account created successfully.";
+                redirect_to(url_for("/login.php"));    
+            } else{
+                $errors[] = $result;
+            }
         }
         
 

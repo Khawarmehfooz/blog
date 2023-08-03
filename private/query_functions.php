@@ -49,4 +49,35 @@
 
     }
 
+    // Post
+    function insert_post($post_title,$post_excerpt,$post_description,$post_thumbnail){
+        global $db;
+        $user_id = $_SESSION['user_id'];
+
+        if(!empty($errors)){
+            return $errors;
+        }
+
+        $sql = "INSERT INTO posts ";
+        $sql .= "(user_id, post_title,post_excerpt,post_description,publish_date,post_thumbnail) ";
+        $sql .= "VALUES(";
+        $sql .= "'" . $user_id . "', ";
+        $sql .= "'" . $post_title . "', ";
+        $sql .= "'" . $post_excerpt . "', ";
+        $sql .= "'" . $post_description . "', ";
+        $sql .= "'" . time() . "', ";
+        $sql .= "'" . $post_thumbnail . "'";
+        $sql .= ")"; 
+
+        $result = mysqli_query($db,$sql);
+        if($result){
+            return true;
+        }else{
+            echo mysqli_error($db);
+            db_disconnect($db);
+            exit;
+        }
+
+    }
+
 ?>

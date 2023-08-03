@@ -79,6 +79,12 @@ picture {
 .error-heading{
   font-size: clamp(18px,22px,24px);
 }
+.message-container{
+  width: min(900px, 95%);
+  margin-inline:auto;
+  margin-top: 1rem;
+
+}
 /* Session Message */
 .message{
   background-color: var(--light-blue);

@@ -19,8 +19,8 @@
             $errors[] = "Password doesnot Match!";
         }
 
-        $new_user = new User($username,$email,$password);
         if(empty($errors)){
+            $new_user = new User($username,$email,$password);
             $result = $new_user->createUser(); 
             if( $result === true){
                 $new_user_id = mysqli_insert_id($db);

@@ -1,6 +1,34 @@
 <?php
     include("../../private/initialize.php");
     require_login();
+    if(is_post_request()){
+        $user_id = $_SESSION['user_id'];
+        $post_title = $_POST['post-title'];
+        $post_excerpt = $_POST['post-excerpt'];
+        $post_description = $_POST['post-description'];
+        $post_thumbnail = "Will Add Later";
+
+        if($post_title == ""){
+            $errors[] = "Post title cannot be blank.";
+        }
+        if($post_excerpt == ""){
+            $errors[] = "Post Excerpt cannot be blank.";
+        }
+        if($post_description == ""){
+            $errors[] = "Post description cannot be blank.";
+        }
+        $new_post = new Post($post_title,$post_excerpt,$post_description,$post_thumbnail);
+        if(empty($error)){
+            $result = $new_post->createPost();
+            if($result === true){
+                $new_post_id = mysqli_insert_id($db);
+                $_SESSION['message'] = "New Post Created Successfully";
+                redirect_to(url_for("/user-dashboard"));
+            }else{
+                $errors[] = $result;
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +46,17 @@
             <a role="button" href="<?php echo url_for("/") ?>">Cancel</a>
         </section>
     </header>
-    <form action="" class="create-post-form">
+    <div class="message-container">
+        <?php 
+            echo display_errors($errors);
+            echo display_session_message();
+        ?>
+    </div>
+    
+    <form action="new.php" class="create-post-form" method="POST">
         <input type="text" name="post-title" id="post-title" placeholder="Title">
         <input type="text" name="post-excerpt" id="post-excerpt" placeholder="Except">
-        <input type="file" name="post-image" id="post-image">
+        <!-- <input type="file" name="post-image" id="post-image"> -->
         <textarea name="post-description" id="post-description" cols="30" rows="10"></textarea>
         <input type="submit" value="Publish">
         <script>

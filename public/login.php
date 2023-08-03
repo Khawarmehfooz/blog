@@ -13,6 +13,7 @@
                 <a class="login-brand" href="<?php echo url_for("/") ?>">Blog</a>
                 <a class="signup-btn" href="<?php echo url_for("/signup.php") ?>">Sign up</a>
             </header>
+            <?php echo display_session_message(); ?>
             <h1>Log in</h1>
             <form action="" class="login-form">
                 <div class="form-group">

@@ -10,7 +10,7 @@
     function insert_user($username,$email,$password){
         global $db;
         if(!has_unique_email($email)){
-            $errors ="Email Not Allowed." ;
+            $errors ="Email already exists. Try another." ;
         }
         if(!empty($errors)){
             return $errors;

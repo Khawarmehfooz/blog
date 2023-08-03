@@ -68,6 +68,26 @@ picture {
   display: block;
   width: 100%;
 }
+/* Errors Message Block */
+.errors{
+
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: hsl(1, 100%, 65%);
+  border-radius: 3px;
+}
+.error-heading{
+  font-size: clamp(18px,22px,24px);
+}
+/* Session Message */
+.message{
+  background-color: var(--light-blue);
+  color: var(--black);
+  font-size: clamp(18px, 20px, 22px);
+  padding: 1rem;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+}
 /* Utility Classes */
 .dark-bg {
   background-color: #242423;

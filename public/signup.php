@@ -7,11 +7,14 @@
         $confirm_password = $_POST['confirm-signup-password'];
 
         $new_user = new User($username,$email,$password);
-        if($new_user->createUser()){
-            echo "<pre>";
-            var_dump($new_user);
-            echo "</pre>";    
-        } 
+        $result = $new_user->createUser(); 
+        if( $result === true){
+            $new_user_id = mysqli_insert_id($db);
+            $_SESSION['message'] = "Account created successfully.";
+            redirect_to(url_for("/login.php"));    
+        } else{
+            $errors[] = $result;
+        }
         
 
     }
@@ -30,6 +33,7 @@
                 <a class="login-brand" href="<?php echo url_for("/") ?>">Blog</a>
                 <a class="signup-btn" href="<?php echo url_for("/login.php") ?>">Log in</a>
             </header>
+            <?php echo display_errors($errors); ?>
             <h1>Sign Up</h1>
             <form action="signup.php" class="login-form" method="POST">
                 <div class="form-group">

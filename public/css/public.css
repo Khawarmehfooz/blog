@@ -149,7 +149,7 @@ nav {
   display: flex;
   gap: 1rem;
 }
-.signup-btn {
+.signup-btn, .dashboard-btn {
   background-color: var(--black);
   padding: 8px 16px;
   color: var(--white);

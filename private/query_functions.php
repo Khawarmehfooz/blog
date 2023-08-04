@@ -50,6 +50,13 @@
     }
 
     // Post
+    function find_all_posts(){
+        global $db;
+        $sql = "SELECT * FROM posts";
+        $result = mysqli_query($db,$sql);
+        confirm_result_set($result);
+        return $result;
+    }
     function find_own_post(){
         global $db;
         $user_id = $_SESSION['user_id'];

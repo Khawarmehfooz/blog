@@ -10,7 +10,7 @@
     function find_user_by_email($email){
         global $db;
         $sql = "SELECT * FROM users ";
-        $sql .= "WHERE email='".$email."' ";
+        $sql .= "WHERE email='" . db_escape($db,$email)."' ";
         $sql .= "LIMIT 1";
         $result = mysqli_query($db,$sql);
         confirm_result_set($result);
@@ -32,9 +32,9 @@
         $sql = "INSERT INTO users ";
         $sql .= "(username,email,hashed_password) ";
         $sql .= "VALUES(";
-        $sql .= "'" . $username . "',";
-        $sql .= "'" . $email . "',";
-        $sql .= "'" . $hashed_password . "'";
+        $sql .= "'" . db_escape($db,$username) . "',";
+        $sql .= "'" . db_escape($db,$email) . "',";
+        $sql .= "'" . db_escape($db,$hashed_password) . "'";
         $sql .= ")";
 
         $result = mysqli_query($db,$sql);
@@ -62,7 +62,7 @@
         global $db;
 
         $sql = "SELECT * FROM posts ";
-        $sql .= "WHERE id = '" . $id . "'";
+        $sql .= "WHERE id = '" . db_escape($db,$id) . "'";
         $result = mysqli_query($db,$sql);
         confirm_result_set($result);
         $post = mysqli_fetch_assoc($result);
@@ -73,7 +73,7 @@
         $user_id = $_SESSION['user_id'];
 
         $sql = "SELECT * FROM posts ";
-        $sql .= "WHERE user_id='" . $user_id . "'";
+        $sql .= "WHERE user_id='" . db_escape($db,$user_id) . "'";
         $result = mysqli_query($db,$sql);
         confirm_result_set($result);
         return $result;
@@ -89,12 +89,12 @@
         $sql = "INSERT INTO posts ";
         $sql .= "(user_id, post_title,post_excerpt,post_description,publish_date,post_thumbnail) ";
         $sql .= "VALUES(";
-        $sql .= "'" . $user_id . "', ";
-        $sql .= "'" . $post_title . "', ";
-        $sql .= "'" . $post_excerpt . "', ";
-        $sql .= "'" . $post_description . "', ";
+        $sql .= "'" . db_escape($db,$user_id) . "', ";
+        $sql .= "'" . db_escape($db,$post_title) . "', ";
+        $sql .= "'" . db_escape($db,$post_excerpt) . "', ";
+        $sql .= "'" . db_escape($db,$post_description) . "', ";
         $sql .= "'" . time() . "', ";
-        $sql .= "'" . $post_thumbnail . "'";
+        $sql .= "'" . db_escape($db,$post_thumbnail) . "'";
         $sql .= ")"; 
 
         $result = mysqli_query($db,$sql);
@@ -110,11 +110,11 @@
         global $db;
         $sql = "UPDATE posts ";
         $sql .= "SET ";
-        $sql .= "post_title ='" . $post_title . "', ";
-        $sql .= "post_excerpt ='" . $post_excerpt . "', ";
-        $sql .= "post_description ='" . $post_description . "', ";
-        $sql .= "post_thumbnail ='" . $post_thumbnail . "' ";
-        $sql .= "WHERE  id='" . $post_id . "' ";
+        $sql .= "post_title ='" . db_escape($db,$post_title) . "', ";
+        $sql .= "post_excerpt ='" . db_escape($db,$post_excerpt) . "', ";
+        $sql .= "post_description ='" . db_escape($db,$post_description) . "', ";
+        $sql .= "post_thumbnail ='" . db_escape($db,$post_thumbnail) . "' ";
+        $sql .= "WHERE  id='" . db_escape($db,$post_id) . "' ";
         $sql .= "LIMIT 1";
         $result = mysqli_query($db,$sql);
         if($result) {
@@ -131,7 +131,7 @@
         global $db;
 
         $sql = "DELETE FROM posts ";
-        $sql .= "WHERE id='" . $id . "' ";
+        $sql .= "WHERE id='" . db_escape($db,$id) . "' ";
         $sql .= "LIMIT 1";
 
         $result = mysqli_query($db,$sql);

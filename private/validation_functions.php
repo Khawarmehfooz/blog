@@ -14,4 +14,8 @@ function has_unique_email($email,$current_id=0){
     return $user_count === 0;
 }
 
+function is_blank($val){
+    return !isset($val) || trim($val) ==='';
+}
+
 ?>

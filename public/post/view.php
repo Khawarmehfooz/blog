@@ -3,6 +3,11 @@
     require_once(SHARED_PATH . '/public_header.php');
     $post_id = $_GET['id'] ?? '';
     $post = find_post_by_id($post_id);
+    if(!$post){
+        $_SESSION['message'] = "Post Not Found!";
+        redirect_to(url_for("/"));
+        exit;
+    }
 ?>
 <main>
     <article>
@@ -14,7 +19,7 @@
                 <?php echo $post['post_title']; ?>
             </h1>
             <p class="article-excerpt">
-                ?<?php echo $post['post_excerpt'] ?>
+                <?php echo $post['post_excerpt'] ?>
             </p>
             <hr class="separator" size="2" color="black">
             <div class="article-description">

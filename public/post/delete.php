@@ -1,1 +1,3 @@
-<?php include("../../private/initialize.php") ?>
+<?php 
+    include("../../private/initialize.php"); 
+?>

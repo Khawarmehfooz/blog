@@ -17,11 +17,11 @@
         if($post_description == ""){
             $errors[] = "Post description cannot be blank.";
         }
-        $new_post = new Post($post_title,$post_excerpt,$post_description,$post_thumbnail);
+        $Post = new Post($post_title,$post_excerpt,$post_description,$post_thumbnail);
         if(empty($error)){
-            $result = $new_post->createPost();
+            $result = $Post->createPost();
             if($result === true){
-                $new_post_id = mysqli_insert_id($db);
+                $Post_id = mysqli_insert_id($db);
                 $_SESSION['message'] = "New Post Created Successfully";
                 redirect_to(url_for("/user-dashboard"));
             }else{

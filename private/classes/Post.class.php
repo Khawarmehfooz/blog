@@ -12,6 +12,10 @@
         public function createPost(){
             $result = insert_post($this->post_title,$this->post_excerpt,$this->post_description,$this->post_thumbnail);
             return $result;
+        }
+        public function viewPost($id){
+            $result = find_post_by_id($id);
+            return $result;
 
         }
     }

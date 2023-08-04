@@ -6,6 +6,11 @@
 ?>
 
 <main>
+    <div class="message-container">
+    <?php 
+        echo display_session_message();
+    ?>
+    </div>
     <div class="posts-container">
         <?php while($post = mysqli_fetch_assoc($posts_set)){ ?>
         <article class="post">

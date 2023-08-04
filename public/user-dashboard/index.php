@@ -1,6 +1,7 @@
 <?php 
     include("../../private/initialize.php"); 
     require_login();
+    $posts_set = find_own_post();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,8 +34,9 @@
                     <th>Post Title</th>
                     <th colspan="3">Actions</th>
                 </tr>
+                <?php while($post = mysqli_fetch_assoc($posts_set)){ ?>
                 <tr>
-                    <td>Behind Blog's New Design System</td>
+                    <td><?php echo $post['post_title']; ?></td>
                     <td>
                         <a class="view-btn" href="<?php echo url_for("/post/view.php"); ?>">View</a>
                     </td>
@@ -45,6 +47,7 @@
                         <a class="delete-btn" href="<?php echo url_for("/post/confirm-delete.php") ?>">Delete</a>
                     </td>
                 </tr>
+                <?php } ?>
             </table>
         </section>
     </main>

@@ -50,6 +50,16 @@
     }
 
     // Post
+    function find_own_post(){
+        global $db;
+        $user_id = $_SESSION['user_id'];
+
+        $sql = "SELECT * FROM posts ";
+        $sql .= "WHERE user_id='" . $user_id . "'";
+        $result = mysqli_query($db,$sql);
+        confirm_result_set($result);
+        return $result;
+    }
     function insert_post($post_title,$post_excerpt,$post_description,$post_thumbnail){
         global $db;
         $user_id = $_SESSION['user_id'];

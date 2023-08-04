@@ -120,15 +120,29 @@
         if($result) {
             return true;
         } else {
-        // UPDATE failed
-        echo mysqli_error($db);
-        db_disconnect($db);
-        exit;
+            // UPDATE failed
+            echo mysqli_error($db);
+            db_disconnect($db);
+            exit;
+        }
     }
-        
 
+    function delete_post($id){
+        global $db;
 
+        $sql = "DELETE FROM posts ";
+        $sql .= "WHERE id='" . $id . "' ";
+        $sql .= "LIMIT 1";
 
+        $result = mysqli_query($db,$sql);
+        if($result){
+            return true;
+        }else {
+            //  delete failed
+            echo mysqli_error($db);
+            db_disconnect($db);
+            exit;
+        }
     }
 
 ?>

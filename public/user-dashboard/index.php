@@ -38,13 +38,13 @@
                 <tr>
                     <td><?php echo $post['post_title']; ?></td>
                     <td>
-                        <a class="view-btn" href="<?php echo url_for("/post/view.php"); ?>">View</a>
+                        <a class="view-btn" href="<?php echo url_for("/post/view.php?id={$post['id']}"); ?>">View</a>
                     </td>
                     <td>
-                        <a class="edit-btn" href="<?php echo url_for("/post/edit.php"); ?>">Edit</a>
+                        <a class="edit-btn" href="<?php echo url_for("/post/edit.php?id={$post['id']}"); ?>">Edit</a>
                     </td>
                     <td>
-                        <a class="delete-btn" href="<?php echo url_for("/post/confirm-delete.php") ?>">Delete</a>
+                        <a class="delete-btn" href="<?php echo url_for("/post/confirm-delete.php?id={$post['id']}") ?>">Delete</a>
                     </td>
                 </tr>
                 <?php } ?>

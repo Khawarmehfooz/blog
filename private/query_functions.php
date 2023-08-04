@@ -105,6 +105,29 @@
             db_disconnect($db);
             exit;
         }
+    }
+    function update_post($post_id,$post_title,$post_excerpt,$post_description,$post_thumbnail){
+        global $db;
+        $sql = "UPDATE posts ";
+        $sql .= "SET ";
+        $sql .= "post_title ='" . $post_title . "', ";
+        $sql .= "post_excerpt ='" . $post_excerpt . "', ";
+        $sql .= "post_description ='" . $post_description . "', ";
+        $sql .= "post_thumbnail ='" . $post_thumbnail . "' ";
+        $sql .= "WHERE  id='" . $post_id . "' ";
+        $sql .= "LIMIT 1";
+        $result = mysqli_query($db,$sql);
+        if($result) {
+            return true;
+        } else {
+        // UPDATE failed
+        echo mysqli_error($db);
+        db_disconnect($db);
+        exit;
+    }
+        
+
+
 
     }
 

@@ -268,7 +268,6 @@ main {
 .article-title {
   font-size: var(--step-2);
   margin: 1rem 0;
-  text-wrap: balance;
 }
 .article-excerpt {
   font-size: 20px;
@@ -280,6 +279,9 @@ main {
 .article-description {
   font-size: 18px;
   margin: 2rem 0;
+}
+.article-description p{
+  margin-bottom: 1.5rem;
 }
 /* Create / New Post */
 .create-post-header {
@@ -360,7 +362,6 @@ main {
 .dashboard-title {
   font-size: var(--step-1);
   letter-spacing: 2px;
-  text-wrap: balance;
 }
 .dashboard-navbar .login-btn {
   color: hsl(0, 0%, 90%);

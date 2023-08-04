@@ -57,6 +57,17 @@
         confirm_result_set($result);
         return $result;
     }
+
+    function find_post_by_id($id){
+        global $db;
+
+        $sql = "SELECT * FROM posts ";
+        $sql .= "WHERE id = '" . $id . "'";
+        $result = mysqli_query($db,$sql);
+        confirm_result_set($result);
+        $post = mysqli_fetch_assoc($result);
+        return $post;
+    }
     function find_own_post(){
         global $db;
         $user_id = $_SESSION['user_id'];

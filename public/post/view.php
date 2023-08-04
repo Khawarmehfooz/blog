@@ -1,6 +1,8 @@
 <?php 
     include("../../private/initialize.php");
     require_once(SHARED_PATH . '/public_header.php');
+    $post_id = $_GET['id'] ?? '';
+    $post = find_post_by_id($post_id);
 ?>
 <main>
     <article>
@@ -9,42 +11,15 @@
         </figure>
         <section class="article-details">
             <h1 class="article-title">
-                Behind Blog's New Design System
+                <?php echo $post['post_title']; ?>
             </h1>
             <p class="article-excerpt">
-                The story of our site-wide redesign and web tech and accessibility wins.
+                ?<?php echo $post['post_excerpt'] ?>
             </p>
             <hr class="separator" size="2" color="black">
-            <p class="article-description">
-                For Friday 2021, we wanted to release a site-wide rebrand to replace our previous, 
-                ten-year-old design with something much more modern. Our goals were for it to not only 
-                be exciting and new from a visual perspective, but to also make use of progress in web tech and accessibility.
-            </p>
-            <p class="article-description">
-                For Friday 2021, we wanted to release a site-wide rebrand to replace our previous, 
-                ten-year-old design with something much more modern. Our goals were for it to not only 
-                be exciting and new from a visual perspective, but to also make use of progress in web tech and accessibility.
-            </p>
-            <p class="article-description">
-                For Friday 2021, we wanted to release a site-wide rebrand to replace our previous, 
-                ten-year-old design with something much more modern. Our goals were for it to not only 
-                be exciting and new from a visual perspective, but to also make use of progress in web tech and accessibility.
-            </p>
-            <p class="article-description">
-                For Friday 2021, we wanted to release a site-wide rebrand to replace our previous, 
-                ten-year-old design with something much more modern. Our goals were for it to not only 
-                be exciting and new from a visual perspective, but to also make use of progress in web tech and accessibility.
-            </p>
-            <p class="article-description">
-                For Friday 2021, we wanted to release a site-wide rebrand to replace our previous, 
-                ten-year-old design with something much more modern. Our goals were for it to not only 
-                be exciting and new from a visual perspective, but to also make use of progress in web tech and accessibility.
-            </p>
-            <p class="article-description">
-                For Friday 2021, we wanted to release a site-wide rebrand to replace our previous, 
-                ten-year-old design with something much more modern. Our goals were for it to not only 
-                be exciting and new from a visual perspective, but to also make use of progress in web tech and accessibility.
-            </p>
+            <div class="article-description">
+                <?php echo $post["post_description"]; ?>
+            </div>
         </section>
     </article>
 </main>

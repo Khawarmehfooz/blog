@@ -8,6 +8,7 @@
         redirect_to(url_for("/user-dashboard"));
         exit;
     }
+    $current_post_thumbnail_name = $post['post_thumbnail'];
 
     if(is_post_request()){
         // Update Post
@@ -48,7 +49,7 @@
             $errors[] = "Post Description cannot be blank!";
         }
         if(is_blank($post_thumbnail_path)){
-            $errors[] = "Choose a thumbnail!";
+            $post_thumbnail_path = $current_post_thumbnail_name;
         }
 
         if(empty($errors)){
@@ -89,7 +90,7 @@
         <input type="text" name="post-title" id="post-title" placeholder="Title" value="<?php echo $post['post_title']; ?>">
         <input type="text" name="post-excerpt" id="post-excerpt" placeholder="Except" value="<?php echo $post['post_excerpt']; ?>">
         <h2>Current Thumbnail</h2><br>
-        <img src="<?php echo url_for("/post/uploads/{$post['post_thumbnail']}")?>" id="current-thumbnail" alt=""><br>
+        <img src="<?php echo url_for("/post/uploads/{$current_post_thumbnail_name}")?>" id="current-thumbnail" alt=""><br>
         <label for="post-thumbnail"><h2>Choose New Thumbnail</h2></label>
         <input type="file" name="post-thumbnail" id="post-thumbnail" accept="image/*" value="<?php echo url_for("/post/uploads/{$post['post_thumbnail']}") ?>">
         <textarea name="post-description" id="post-description" cols="30" rows="10" >

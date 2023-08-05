@@ -18,7 +18,7 @@
             $errors[] = "Post description cannot be blank.";
         }
         $Post = new Post($post_title,$post_excerpt,$post_description,$post_thumbnail);
-        if(empty($error)){
+        if(empty($errors)){
             $result = $Post->createPost();
             if($result === true){
                 $Post_id = mysqli_insert_id($db);

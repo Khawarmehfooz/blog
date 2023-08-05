@@ -12,22 +12,22 @@
     if(is_post_request()){
         // Update Post
         $id = $post_id; 
-        $post_title = $_POST['post-title'] ?? '';
+        $post_title = $_POST['post-title'];
         $post_excerpt = $_POST['post-excerpt'] ?? '';
         $post_description = $_POST['post-description'] ?? '';
         $post_thumbnail = "Will Do Later";
 
         if(is_blank($post_title)){
-            $error[] = "Post Title cannot be blank!";
+            $errors[] = "Post Title cannot be blank!";
         }
         if(is_blank($post_excerpt)){
-            $error[] = "Post Excerpt cannot be blank!";
+            $errors[] = "Post Excerpt cannot be blank!";
         }
         if(is_blank($post_description)){
-            $error[] = "Post Description cannot be blank!";
+            $errors[] = "Post Description cannot be blank!";
         }
         if(is_blank($post_thumbnail)){
-            $error[] = "Choose a thumbnail!";
+            $errors[] = "Choose a thumbnail!";
         }
 
         if(empty($errors)){
@@ -61,7 +61,9 @@
             <a role="button" href="<?php echo url_for("/") ?>">Cancel</a>
         </section>
     </header>
-    <?php echo display_errors($errors); ?>
+    <div class="message-container">
+        <?php echo display_errors($errors); ?>
+    </div>
     <form action="<?php echo url_for("/post/edit.php?id={$post_id}") ?>" class="create-post-form" method="POST">
         <input type="text" name="post-title" id="post-title" placeholder="Title" value="<?php echo $post['post_title']; ?>">
         <input type="text" name="post-excerpt" id="post-excerpt" placeholder="Except" value="<?php echo $post['post_excerpt']; ?>">

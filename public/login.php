@@ -8,10 +8,10 @@
         $email = $_POST['login-email'];
         $password = $_POST['login-password'];
 
-        if($email == ''){
+        if(is_blank($email)){
             $errors[] = "Email Cannot be blank!"; 
         }
-        if($password == ""){
+        if(is_blank($password)){
             $errors[] = "Password cannot be blank!";
         }
         if(empty($errors)){

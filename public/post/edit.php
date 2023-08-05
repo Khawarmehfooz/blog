@@ -17,16 +17,29 @@
         $post_description = $_POST['post-description'] ?? '';
         $post_thumbnail = "Will Do Later";
 
-        
+        if(is_blank($post_title)){
+            $error[] = "Post Title cannot be blank!";
+        }
+        if(is_blank($post_excerpt)){
+            $error[] = "Post Excerpt cannot be blank!";
+        }
+        if(is_blank($post_description)){
+            $error[] = "Post Description cannot be blank!";
+        }
+        if(is_blank($post_thumbnail)){
+            $error[] = "Choose a thumbnail!";
+        }
+
+        if(empty($errors)){
             $result = update_post($id,$post_title,$post_excerpt,$post_description,$post_thumbnail);
             if($result === true){
                 $_SESSION['message'] = "Post Updated Successfully!";
-
                 redirect_to(url_for("/user-dashboard"));
             }else{
                 $errors[] = $result;
 
             }
+        }
         
     }else{
 

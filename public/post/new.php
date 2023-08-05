@@ -8,13 +8,13 @@
         $post_description = $_POST['post-description'];
         $post_thumbnail = "Will Add Later";
 
-        if($post_title == ""){
+        if(is_blank($post_title)){
             $errors[] = "Post title cannot be blank.";
         }
-        if($post_excerpt == ""){
+        if(is_blank($post_excerpt)){
             $errors[] = "Post Excerpt cannot be blank.";
         }
-        if($post_description == ""){
+        if(is_blank($post_description)){
             $errors[] = "Post description cannot be blank.";
         }
         $Post = new Post($post_title,$post_excerpt,$post_description,$post_thumbnail);

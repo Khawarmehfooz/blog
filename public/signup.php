@@ -6,14 +6,17 @@
         $password = $_POST['signup-password'];
         $confirm_password = $_POST['confirm-signup-password'];
 
-        if($username == ""){
+        if(is_blank($username)){
             $errors[] = "Username cannot be blank!";
         }
-        if($email == ""){
+        if(is_blank($email)){
             $errors[] = "Email cannot be blank!";
         }
-        if($password == ""){
+        if(is_blank($password)){
             $errors[] = "Password cannot be blank!";
+        }
+        if(is_blank($confirm_password)){
+            $errors[] = "Confirm Password cannot be blank!";
         }
         if($password !== $confirm_password){
             $errors[] = "Password doesnot Match!";

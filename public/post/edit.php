@@ -2,6 +2,13 @@
     include("../../private/initialize.php");
     require_login();
     $post_id = $_GET['id'] ?? '';
+    $post = find_post_by_id($post_id);
+    if($post['user_id'] !== $_SESSION['user_id']){
+        $_SESSION['message'] = "Unauthorized!";
+        redirect_to(url_for("/user-dashboard"));
+        exit;
+    }
+
     if(is_post_request()){
         // Update Post
         $id = $post_id; 
@@ -22,7 +29,6 @@
             }
         
     }else{
-        $post = find_post_by_id($post_id);
 
     }
 ?>

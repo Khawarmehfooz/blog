@@ -6,6 +6,7 @@
         $post_title = $_POST['post-title'];
         $post_excerpt = $_POST['post-excerpt'];
         $post_description = $_POST['post-description'];
+        $publish_date = date('F j, Y');
         $post_thumbnail = "Will Add Later";
 
         if(is_blank($post_title)){
@@ -17,7 +18,7 @@
         if(is_blank($post_description)){
             $errors[] = "Post description cannot be blank.";
         }
-        $Post = new Post($post_title,$post_excerpt,$post_description,$post_thumbnail);
+        $Post = new Post($post_title,$post_excerpt,$post_description,$publish_date,$post_thumbnail);
         if(empty($errors)){
             $result = $Post->createPost();
             if($result === true){

@@ -78,7 +78,7 @@
         confirm_result_set($result);
         return $result;
     }
-    function insert_post($post_title,$post_excerpt,$post_description,$post_thumbnail){
+    function insert_post($post_title,$post_excerpt,$post_description,$publish_date,$post_thumbnail){
         global $db;
         $user_id = $_SESSION['user_id'];
 
@@ -93,7 +93,7 @@
         $sql .= "'" . db_escape($db,$post_title) . "', ";
         $sql .= "'" . db_escape($db,$post_excerpt) . "', ";
         $sql .= "'" . db_escape($db,$post_description) . "', ";
-        $sql .= "'" . time() . "', ";
+        $sql .= "'" . db_escape($db,$publish_date) . "', ";
         $sql .= "'" . db_escape($db,$post_thumbnail) . "'";
         $sql .= ")"; 
 

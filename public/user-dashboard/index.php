@@ -28,6 +28,8 @@
                 <a class="home-btn" role="button" href="<?php echo url_for("/") ?>">Home</a>
                 <a class="create-post-btn" role="button" href="<?php echo url_for("/post/new.php") ?>">Create Post</a>
             </div>
+
+            
             <h2 class="recent-title">Recent Posts</h2>
             <table class="recent-post-table" border="1">
                 <tr>

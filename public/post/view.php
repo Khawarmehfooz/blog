@@ -12,7 +12,7 @@
 <main>
     <article>
         <figure>
-            <img id="aritcle-image" src="<?php echo url_for("/images/demo-image.png") ?>" alt="">
+            <img id="aritcle-image" src="<?php echo url_for("/images/demo-image.svg") ?>" alt="">
         </figure>
         <section class="article-details">
             <h1 class="article-title">

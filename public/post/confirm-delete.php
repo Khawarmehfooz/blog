@@ -1,7 +1,7 @@
 <?php 
     include("../../private/initialize.php"); 
     require_login();
-    $id = $_GET['id'] ?? '';
+    $id = htmlspecialchars($_GET['id']) ?? '';
     $post = find_post_by_id($id); 
     if($post['user_id'] !== $_SESSION['user_id']){
         $_SESSION['message'] = "Unauthorized!";
@@ -20,7 +20,7 @@
 <body class="dark-bg">
     <section class="delete-container">
         <p class="delete-warning">Do you really want to delete this post?</p>
-        <h1 class="delete-post-title"><?php echo $post['post_title']; ?></h1>
+        <h1 class="delete-post-title"><?php echo htmlspecialchars($post['post_title']); ?></h1>
         <div class="delete-actions">
             <a class="cancel-delete-btn" href="<?php echo url_for("/user-dashboard") ?>">Cancel</a>
             <a class="delete-btn" href="<?php echo url_for("/post/delete.php?id={$id}") ?>">Confirm Delete</a>

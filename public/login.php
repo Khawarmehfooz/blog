@@ -5,8 +5,8 @@
     $email = [];
     $password = [];
     if(is_post_request()){
-        $email = $_POST['login-email'];
-        $password = $_POST['login-password'];
+        $email = htmlspecialchars($_POST['login-email']);
+        $password = htmlspecialchars($_POST['login-password']);
 
         if(is_blank($email)){
             $errors[] = "Email Cannot be blank!"; 

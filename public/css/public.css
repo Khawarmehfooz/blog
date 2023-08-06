@@ -49,6 +49,7 @@ table,
 td,
 th {
   font-family: "Poppins", sans-serif;
+  color: var(--black);
 }
 a {
   text-decoration: none;

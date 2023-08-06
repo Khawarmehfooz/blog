@@ -1,10 +1,10 @@
 <?php 
     require_once('../private/initialize.php'); 
     if(is_post_request()){
-        $username = $_POST['username'];
-        $email = $_POST['signup-email'];
-        $password = $_POST['signup-password'];
-        $confirm_password = $_POST['confirm-signup-password'];
+        $username = htmlspecialchars($_POST['username']);
+        $email = htmlspecialchars($_POST['signup-email']);
+        $password = htmlspecialchars($_POST['signup-password']);
+        $confirm_password = htmlspecialchars($_POST['confirm-signup-password']);
 
         if(is_blank($username)){
             $errors[] = "Username cannot be blank!";

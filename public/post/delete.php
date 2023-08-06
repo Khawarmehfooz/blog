@@ -1,6 +1,6 @@
 <?php 
     include("../../private/initialize.php"); 
-    $id = $_GET['id'] ?? '';
+    $id = htmlspecialchars($_GET['id']) ?? '';
     $post = find_post_by_id($id); 
     if($post['user_id'] !== $_SESSION['user_id']){
         $_SESSION['message'] = "Unauthorized!";

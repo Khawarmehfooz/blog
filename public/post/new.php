@@ -2,43 +2,42 @@
     include("../../private/initialize.php");
     require_login();
     if(is_post_request()){
-        $user_id = $_SESSION['user_id'];
-        $post_title = $_POST['post-title'];
-        $post_excerpt = $_POST['post-excerpt'];
-        $post_description = $_POST['post-description'];
+        $user_id = htmlspecialchars($_SESSION['user_id']);
+        $post_title = htmlspecialchars($_POST['post-title']);
+        $post_excerpt = htmlspecialchars($_POST['post-excerpt']);
+        $post_description = htmlspecialchars($_POST['post-description']);
         $publish_date = date('F j, Y');
         $post_thumbnail_path = "";
+        
+        if(is_blank($post_title)){
+            $errors[] = "Post title cannot be blank.";
+        }
+        if(strlen($post_title) > 170){
+            $errors[]="Post title lenght must be less than 170 characters";
+        }
+        if(is_blank($post_excerpt)){
+            $errors[] = "Post Excerpt cannot be blank.";
+        }
+        if(strlen($post_excerpt) >= 170){
+            $errors[]= "Excerpt Lenght must be less than 170 characters";
+        }
+        if(is_blank($post_description)){
+            $errors[] = "Post description cannot be blank.";
+        }
         // File Uploading
         $post_thumbnail = $_FILES['post-thumbnail'];
         $post_thumbnail_name = $post_thumbnail['name'];
         $post_thumbnail_temp_path = $post_thumbnail['tmp_name'];
         $post_thumbnail_error = $post_thumbnail['error'];
 
-        if($post_thumbnail_error===UPLOAD_ERR_OK){
+        if($post_thumbnail_error===UPLOAD_ERR_OK && empty($errors)){
             $thumbnail_upload_directory = getcwd() . "/uploads/";
             $unique_thumbnail_name = uniqid(). "-" . $post_thumbnail_name;
             $destination = $thumbnail_upload_directory . $unique_thumbnail_name;
             $post_thumbnail_path = $unique_thumbnail_name;
-            // echo ;
             $res = move_uploaded_file($post_thumbnail_temp_path,$destination);
-            if($res){
-                $_SESSION['message'] = "Thumbnail Uploaded";
-            }else{
-                echo "Error";
-            }
         }else{
             echo UPLOAD_ERR_NO_FILE;
-        }
-        
-
-        if(is_blank($post_title)){
-            $errors[] = "Post title cannot be blank.";
-        }
-        if(is_blank($post_excerpt)){
-            $errors[] = "Post Excerpt cannot be blank.";
-        }
-        if(is_blank($post_description)){
-            $errors[] = "Post description cannot be blank.";
         }
         $Post = new Post($post_title,$post_excerpt,$post_description,$publish_date,$post_thumbnail_path);
         if(empty($errors)){
@@ -52,6 +51,7 @@
             }
         }
     }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

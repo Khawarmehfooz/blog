@@ -12,8 +12,25 @@
         if(is_blank($email)){
             $errors[] = "Email cannot be blank!";
         }
-        if(is_blank($password)){
-            $errors[] = "Password cannot be blank!";
+        if($password){
+            if(is_blank($password)){
+                $errors[] = "Password cannot be blank!";
+            }elseif(!has_length($password,array('min'=>8))){
+                $errors[] = "Password must contain 8 or more characters";
+            }elseif(!preg_match('/[A-Z]/',$password)){
+                $errors[]= "Password must contains at least 1 uppercase character.";
+
+            }elseif(!preg_match('/[a-z]/',$password)){
+                $errors[]= "Password must contains at least 1 lowercase character.";
+
+            }elseif(!preg_match('/[0-9]/',$password)){
+                $errors[]= "Password must contains at least 1 number.";
+
+            }elseif(!preg_match('/[^A-Za-z0-9\s]/',$password)){
+                $errors[]= "Password must contains at least 1 symbol.";
+            }
+
+
         }
         if(is_blank($confirm_password)){
             $errors[] = "Confirm Password cannot be blank!";
@@ -65,6 +82,7 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" name="signup-password" id="password" autocomplete="off">
+                    <span>Password must contains Uppercase Character, Lowercase Character, Number and symbol</span>
                 </div>
                 <div class="form-group">
                     <label for="confirm-password">Confirm Password</label>

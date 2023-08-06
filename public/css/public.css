@@ -49,7 +49,6 @@ table,
 td,
 th {
   font-family: "Poppins", sans-serif;
-  color: var(--black);
 }
 a {
   text-decoration: none;
@@ -189,6 +188,9 @@ main {
 .post:hover {
   box-shadow: 3px 3px;
   transition: all ease-in-out;
+}
+.post a{
+  color: var(--black);
 }
 .post-img {
   border-top-left-radius: 5px;

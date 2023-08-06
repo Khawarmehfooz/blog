@@ -106,6 +106,15 @@
             exit;
         }
     }
+    function search_post($search_query){
+        global $db;
+        $sql = "SELECT * FROM posts ";
+        $sql .= "WHERE post_title LIKE ";
+        $sql .= "'%". db_escape($db,$search_query) . "%'";
+        $result = mysqli_query($db,$sql);
+        confirm_result_set($result);
+        return $result;
+    }
     function update_post($post_id,$post_title,$post_excerpt,$post_description,$post_thumbnail){
         global $db;
         $sql = "UPDATE posts ";

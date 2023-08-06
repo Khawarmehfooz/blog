@@ -10,7 +10,7 @@
         <header >
             <nav class="">    
                     <div class="navbar">
-                        <form action="" class="search-form">
+                        <form action="search.php" class="search-form" method="GET">
                             <input autocomplete="off" type="search" name="search" id="search" placeholder="Search">
                         </form>
                         <a class="brand" href="<?php echo url_for("/") ?>">Blog</a>

@@ -12,14 +12,14 @@
         if(is_blank($post_title)){
             $errors[] = "Post title cannot be blank.";
         }
-        if(strlen($post_title) > 170){
+        if(has_length_greater_than($post_title,170)){
             $errors[]="Post title lenght must be less than 170 characters";
         }
         if(is_blank($post_excerpt)){
             $errors[] = "Post Excerpt cannot be blank.";
         }
-        if(strlen($post_excerpt) >= 170){
-            $errors[]= "Excerpt Lenght must be less than 170 characters";
+        if(has_length_greater_than($post_excerpt,250)){
+            $errors[]= "Excerpt Lenght must be less than 250 characters";
         }
         if(is_blank($post_description)){
             $errors[] = "Post description cannot be blank.";

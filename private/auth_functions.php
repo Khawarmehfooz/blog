@@ -18,4 +18,21 @@
             // Do Nothing
         }
     }
+    // Admin Login
+    function log_in_admin($admin_id,$username){
+        session_regenerate_id();
+        $_SESSION['admin_id'] = $admin_id;
+        $_SESSION['username'] = $username;
+        return true;
+    }
+    function is_admin_logged_in(){
+        return isset($_SESSION['admin_id']);
+    }
+    function require_admin_login(){
+        if(!is_admin_logged_in()){
+            redirect_to(url_for("/admin/login.php"));
+        }else{
+
+        }
+    }
 ?>

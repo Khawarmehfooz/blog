@@ -22,3 +22,7 @@
         <?php } ?>
     </div>
 </main>
+
+<?php 
+    require_once(SHARED_PATH . '/public_footer.php');
+?>

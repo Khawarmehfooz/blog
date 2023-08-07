@@ -8,6 +8,7 @@
         redirect_to(url_for("/"));
         exit;
     }
+    $allowed_tags = '<div><img><h1><h2><h3><h4><h5><h6><p><br><strong><em><ul><li>';
 ?>
 <main>
     <article>
@@ -19,11 +20,11 @@
                 <?php echo htmlspecialchars($post['post_title']); ?>
             </h1>
             <p class="article-excerpt">
-                <?php echo htmlspecialchars($post['post_excerpt']); ?>
+                <?php echo strip_tags($post['post_excerpt'],$allowed_tags); ?>
             </p>
             <hr class="separator" size="2" color="black">
             <div class="article-description">
-                <?php echo htmlspecialchars($post["post_description"]); ?>
+                <?php echo strip_tags($post["post_description"],$allowed_tags); ?>
             </div>
         </section>
     </article>

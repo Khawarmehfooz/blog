@@ -153,5 +153,26 @@
             exit;
         }
     }
+    function get_joined_post_user(){
+        global $db;
+
+        $sql = "SELECT * FROM posts ";
+        $sql .= "JOIN users ON posts.user_id = users.id";
+        $result = mysqli_query($db,$sql);
+        confirm_result_set($result);
+        return $result;
+    }
+    // Admin
+    function find_admin_by_email($email){
+        global $db;
+        $sql = "SELECT * FROM admins ";
+        $sql .= "WHERE email='" . db_escape($db,$email)."' ";
+        $sql .= "LIMIT 1";
+        $result = mysqli_query($db,$sql);
+        confirm_result_set($result);
+        $admin = mysqli_fetch_assoc($result);
+        mysqli_free_result($result);
+        return $admin;
+    }
 
 ?>
